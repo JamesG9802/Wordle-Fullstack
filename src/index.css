@@ -1,68 +1,165 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@theme {
+  --color-primary: var(--color-primary);
+  --color-surfacetint: var(--color-surfacetint);
+  --color-onprimary: var(--color-onprimary);
+  --color-primarycontainer: var(--color-primarycontainer);
+  --color-onprimarycontainer: var(--color-onprimarycontainer);
+  --color-secondary: var(--color-secondary);
+  --color-onsecondary: var(--color-onsecondary);
+  --color-secondarycontainer: var(--color-secondarycontainer);
+  --color-onsecondarycontainer: var(--color-onsecondarycontainer);
+  --color-tertiary: var(--color-tertiary);
+  --color-ontertiary: var(--color-ontertiary);
+  --color-tertiarycontainer: var(--color-tertiarycontainer);
+  --color-ontertiarycontainer: var(--color-ontertiarycontainer);
+  --color-error: var(--color-error);
+  --color-onerror: var(--color-onerror);
+  --color-errorcontainer: var(--color-errorcontainer);
+  --color-onerrorcontainer: var(--color-onerrorcontainer);
+  --color-background: var(--color-background);
+  --color-onbackground: var(--color-onbackground);
+  --color-surface: var(--color-surface);
+  --color-onsurface: var(--color-onsurface);
+  --color-surfacevariant: var(--color-surfacevariant);
+  --color-onsurfacevariant: var(--color-onsurfacevariant);
+  --color-outline: var(--color-outline);
+  --color-outlinevariant: var(--color-outlinevariant);
+  --color-shadow: var(--color-shadow);
+  --color-scrim: var(--color-scrim);
+  --color-inversesurface: var(--color-inversesurface);
+  --color-inverseonsurface: var(--color-inverseonsurface);
+  --color-inverseprimary: var(--color-inverseprimary);
+  --color-primaryfixed: var(--color-primaryfixed);
+  --color-onprimaryfixed: var(--color-onprimaryfixed);
+  --color-primaryfixeddim: var(--color-primaryfixeddim);
+  --color-onprimaryfixedvariant: var(--color-onprimaryfixedvariant);
+  --color-secondaryfixed: var(--color-secondaryfixed);
+  --color-onsecondaryfixed: var(--color-onsecondaryfixed);
+  --color-secondaryfixeddim: var(--color-secondaryfixeddim);
+  --color-onsecondaryfixedvariant: var(--color-onsecondaryfixedvariant);
+  --color-tertiaryfixed: var(--color-tertiaryfixed);
+  --color-ontertiaryfixed: var(--color-ontertiaryfixed);
+  --color-tertiaryfixeddim: var(--color-tertiaryfixeddim);
+  --color-ontertiaryfixedvariant: var(--color-ontertiaryfixedvariant);
+  --color-surfacedim: var(--color-surfacedim);
+  --color-surfacebright: var(--color-surfacebright);
+  --color-surfacecontainerlowest: var(--color-surfacecontainerlowest);
+  --color-surfacecontainerlow: var(--color-surfacecontainerlow);
+  --color-surfacecontainer: var(--color-surfacecontainer);
+  --color-surfacecontainerhigh: var(--color-surfacecontainerhigh);
+  --color-surfacecontainerhighest: var(--color-surfacecontainerhighest);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+body, html {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  scroll-behavior: smooth;
+  @apply bg-background text-onbackground;
+}
+
+.light {
+  --color-primary: #33618D;
+  --color-surfacetint: #33618D;
+  --color-onprimary: #FFFFFF;
+  --color-primarycontainer: #D0E4FF;
+  --color-onprimarycontainer: #001D34;
+  --color-secondary: #00696F;
+  --color-onsecondary: #FFFFFF;
+  --color-secondarycontainer: #9DF0F8;
+  --color-onsecondarycontainer: #002022;
+  --color-tertiary: #506527;
+  --color-ontertiary: #FFFFFF;
+  --color-tertiarycontainer: #D2EC9F;
+  --color-ontertiarycontainer: #131F00;
+  --color-error: #BA1A1A;
+  --color-onerror: #FFFFFF;
+  --color-errorcontainer: #FFDAD6;
+  --color-onerrorcontainer: #410002;
+  --color-background: #F8F9FF;
+  --color-onbackground: #191C20;
+  --color-surface: #F8F9FF;
+  --color-onsurface: #191C20;
+  --color-surfacevariant: #DFE3EB;
+  --color-onsurfacevariant: #42474E;
+  --color-outline: #73777F;
+  --color-outlinevariant: #C2C7CF;
+  --color-shadow: #000000;
+  --color-scrim: #000000;
+  --color-inversesurface: #2D3135;
+  --color-inverseonsurface: #EFF1F7;
+  --color-inverseprimary: #9ECAFC;
+  --color-primaryfixed: #D0E4FF;
+  --color-onprimaryfixed: #001D34;
+  --color-primaryfixeddim: #9ECAFC;
+  --color-onprimaryfixedvariant: #154974;
+  --color-secondaryfixed: #9DF0F8;
+  --color-onsecondaryfixed: #002022;
+  --color-secondaryfixeddim: #80D4DB;
+  --color-onsecondaryfixedvariant: #004F54;
+  --color-tertiaryfixed: #D2EC9F;
+  --color-ontertiaryfixed: #131F00;
+  --color-tertiaryfixeddim: #B6D085;
+  --color-ontertiaryfixedvariant: #394D11;
+  --color-surfacedim: #D8DAE0;
+  --color-surfacebright: #F8F9FF;
+  --color-surfacecontainerlowest: #FFFFFF;
+  --color-surfacecontainerlow: #F2F3F9;
+  --color-surfacecontainer: #ECEEF4;
+  --color-surfacecontainerhigh: #E6E8EE;
+  --color-surfacecontainerhighest: #E0E2E8;
+}
+
+.dark {
+  --color-primary: #9ECAFC;
+  --color-surfacetint: #9ECAFC;
+  --color-onprimary: #003256;
+  --color-primarycontainer: #154974;
+  --color-onprimarycontainer: #D0E4FF;
+  --color-secondary: #80D4DB;
+  --color-onsecondary: #00363A;
+  --color-secondarycontainer: #004F54;
+  --color-onsecondarycontainer: #9DF0F8;
+  --color-tertiary: #B6D085;
+  --color-ontertiary: #243600;
+  --color-tertiarycontainer: #394D11;
+  --color-ontertiarycontainer: #D2EC9F;
+  --color-error: #FFB4AB;
+  --color-onerror: #690005;
+  --color-errorcontainer: #93000A;
+  --color-onerrorcontainer: #FFDAD6;
+  --color-background: #101418;
+  --color-onbackground: #E0E2E8;
+  --color-surface: #101418;
+  --color-onsurface: #E0E2E8;
+  --color-surfacevariant: #42474E;
+  --color-onsurfacevariant: #C2C7CF;
+  --color-outline: #8C9199;
+  --color-outlinevariant: #42474E;
+  --color-shadow: #000000;
+  --color-scrim: #000000;
+  --color-inversesurface: #E0E2E8;
+  --color-inverseonsurface: #2D3135;
+  --color-inverseprimary: #33618D;
+  --color-primaryfixed: #D0E4FF;
+  --color-onprimaryfixed: #001D34;
+  --color-primaryfixeddim: #9ECAFC;
+  --color-onprimaryfixedvariant: #154974;
+  --color-secondaryfixed: #9DF0F8;
+  --color-onsecondaryfixed: #002022;
+  --color-secondaryfixeddim: #80D4DB;
+  --color-onsecondaryfixedvariant: #004F54;
+  --color-tertiaryfixed: #D2EC9F;
+  --color-ontertiaryfixed: #131F00;
+  --color-tertiaryfixeddim: #B6D085;
+  --color-ontertiaryfixedvariant: #394D11;
+  --color-surfacedim: #101418;
+  --color-surfacebright: #36393E;
+  --color-surfacecontainerlowest: #0B0E12;
+  --color-surfacecontainerlow: #191C20;
+  --color-surfacecontainer: #1D2024;
+  --color-surfacecontainerhigh: #272A2F;
+  --color-surfacecontainerhighest: #32353A;
 }
