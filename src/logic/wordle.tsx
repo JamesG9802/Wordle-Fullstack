@@ -38,7 +38,7 @@ export enum Outcome {
  */
 export function GenerateOutcomeString(guessed_word: string, actual_word: string): Outcome[] {
     //  Based on https://github.com/JamesG9802/Wordle-Information-Gain/blob/main/script.js#L409
-    let outcome: Outcome[] = new Array(WORDLE_LENGTH).fill(Outcome.UNUSED);
+    const outcome: Outcome[] = new Array(WORDLE_LENGTH).fill(Outcome.UNUSED);
     if(!guessed_word || guessed_word.length != WORDLE_LENGTH) {
         log.error(`Guess '${guessed_word}' is not a valid guess.`);
         return outcome;
@@ -51,11 +51,11 @@ export function GenerateOutcomeString(guessed_word: string, actual_word: string)
     guessed_word = guessed_word.toLowerCase();
     actual_word = actual_word.toLowerCase();
 
-    let letter_count: Record<string, number> = {};
+    const letter_count: Record<string, number> = {};
 
     //  Green pass - if the letter is in the right spot, its COREECT. Then add it to the letter count.
     for(let i = 0; i < WORDLE_LENGTH; i++) {
-        let guess_char = guessed_word[i];
+        const guess_char = guessed_word[i];
         if(guess_char == actual_word[i]) {
             outcome[i] = Outcome.CORRECT;
             letter_count[guess_char] = (letter_count[guess_char] ?? 0) + 1;
@@ -68,7 +68,7 @@ export function GenerateOutcomeString(guessed_word: string, actual_word: string)
             continue;
         }
         
-        let guess_char = guessed_word[i];
+        const guess_char = guessed_word[i];
 
         //  Checking if the letter is in the word, but in the wrong spot
         for(let j = 0; j < WORDLE_LENGTH; j++) {

@@ -3,6 +3,8 @@ This is a Wordle fullstack server application. It is built with React + Vite and
 
 https://willowy-brioche-b89881.netlify.app/
 
+Documentation available at: https://jamesg9802.github.io/Wordle-Fullstack
+
 # Features
 - Daily Wordle Words
     - The backend API provides a new daily word everyday to challenge yourself on.

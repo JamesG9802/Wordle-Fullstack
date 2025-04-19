@@ -28,7 +28,7 @@ export async function GetCurrentWordOfDay(day: number, max_retries: number = 5):
             }
 
             const text = await response.text();
-            return text.replace(/^\"+|\"+$/g, '');
+            return text.replace(/^"+|"+$/g, '');
         } catch (error) {
             log.error(`Attempt ${attempt + 1} failed: ${error}`);
 
@@ -45,7 +45,7 @@ export async function GetCurrentWordOfDay(day: number, max_retries: number = 5):
     }
 } 
 
-export async function GetValidWords(max_retries: number = 5): Promise<any> {
+export async function GetValidWords(max_retries: number = 5): Promise<string[] | undefined> {
     let attempt = 0;
     let delay = 1;
 

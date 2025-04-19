@@ -1,7 +1,6 @@
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
-import { describe, it, vi, beforeEach, expect } from "vitest";
-import * as api from "services/wordle_api";
-import { Outcome, WORDLE_GUESSES, WORDLE_LENGTH } from "logic/wordle";
+import { describe, it, expect } from "vitest";
+import { WORDLE_GUESSES } from "logic/wordle";
 import WordlePage from "..";
 
 

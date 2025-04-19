@@ -17,9 +17,10 @@ import { toast, ToastContainer } from "react-toastify";
  * @param width the number of columns
  * @returns the array
  */
-function MakeArray(height: number, width: number): any[][] {
+function MakeArray<T>(height: number, width: number): T[][] {
   //  https://stackoverflow.com/a/13808461
-  let arr = new Array(height), i, l;
+  const arr = new Array(height)
+  let i, l;
   for (i = 0, l = height; i < l; i++) {
     arr[i] = new Array(width);
   }
@@ -191,9 +192,11 @@ export function WordlePage({day}: WordlePageProps) {
     const days_since_epoch = day ?? GetCurrentDaySinceEpoch();
 
     GetValidWords().then((words) => {
-      let _valid_words: Set<string> = new Set();
-      for (let i = 0; i < words.length; i++) {
-        _valid_words.add(words[i].toLowerCase());
+      const _valid_words: Set<string> = new Set();
+      if(words != undefined) {
+        for (let i = 0; i < words.length; i++) {
+          _valid_words.add(words[i].toLowerCase());
+        }
       }
       set_valid_words(_valid_words);
     })
@@ -237,7 +240,7 @@ export function WordlePage({day}: WordlePageProps) {
   useEffect(() => {
     for(let i = 0; i < outcomes.length; i++) {
       for(let j = 0; j < outcomes[i].length; j++) {
-        let char: string = guesses[i][j];
+        const char: string = guesses[i][j];
         letter_outcomes[char] = Math.max(letter_outcomes[char] ?? 0, outcomes[i][j]);
       }
     }

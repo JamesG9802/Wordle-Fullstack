@@ -1,12 +1,11 @@
 import { readFileSync } from 'fs';
+import log from 'loglevel';
 import { join } from 'path';
-
-import type { Context } from '@netlify/functions';
 
 /**
  * Get the list of valid words.
  */
-export default async (_: Request, __: Context) => {
+export default async function valid_words() {
   //  Pick a random word from the file list
   try {
     // Build path to the text file
@@ -23,6 +22,7 @@ export default async (_: Request, __: Context) => {
     return Response.json(lines);
   }
   catch (error) {
+    log.error(error);
     return Response.error();
   }
 }

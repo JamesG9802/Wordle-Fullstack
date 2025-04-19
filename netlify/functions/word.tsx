@@ -1,12 +1,11 @@
 import { readFileSync } from 'fs';
+import log from 'loglevel';
 import { join } from 'path';
-
-import type { Context } from '@netlify/functions';
 
 /**
  * Retrieve a word from the list, deterministically chosen by the date.
  */
-export default async (request: Request, context: Context) => {
+export default async function word(request: Request) {
   let date: number | undefined = Number.parseInt(new URL(request.url).searchParams.get("day") ?? "");
   
   if(Number.isNaN(date)) {
@@ -25,10 +24,11 @@ export default async (request: Request, context: Context) => {
     if (date == undefined || !Number.isInteger(date)) {
       date = Math.floor(Math.random() * lines.length);
     }
-    let word = lines[Math.abs(date % lines.length)];
+    const word = lines[Math.abs(date % lines.length)];
     return Response.json(word.trim());
   }
   catch (error) {
+    log.error(error);
     return Response.error();
   }
 }
