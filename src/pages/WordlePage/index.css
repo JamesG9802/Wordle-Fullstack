@@ -4,6 +4,7 @@
     --color-tile__correct: var(--color-tile__correct);
     --color-tile__in_word: var(--color-tile__in_word);
     --color-tile__wrong: var(--color-tile__wrong);
+    --color-surfacecontainerhighest: var(--color-surfacecontainerhighest);
 }
 
 .light {
@@ -49,6 +50,9 @@
     @apply bg-tile__wrong;
 }
 
+.Toastify__toast {
+    @apply bg-surfacecontainerhighest;
+}
 
 @-webkit-keyframes scale-in-center {
     0% {

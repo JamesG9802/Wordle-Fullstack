@@ -1,6 +1,8 @@
 # Wordle Fullstack
 This is a Wordle fullstack server application. It is built with React + Vite and hosted on Netlify. Vitest and React Testing library is used for testing.
 
+https://willowy-brioche-b89881.netlify.app/
+
 # Features
 - Daily Wordle Words
     - The backend API provides a new daily word everyday to challenge yourself on.

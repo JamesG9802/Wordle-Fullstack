@@ -9,6 +9,7 @@ import "./index.css";
 import log from "loglevel";
 import Modal from "components/Modal";
 import Keyboard from "./Keyboard";
+import { toast, ToastContainer } from "react-toastify";
 
 /**
  * Make an array of a specific size.
@@ -121,6 +122,7 @@ export function WordlePage({day}: WordlePageProps) {
   
     if (!valid_words?.has(str)) {
       log.log(`guess ${str} isn't a valid guess.`);
+      toast(`${str.toUpperCase()} is not a valid word.`);
       return [success_ref.current, false];
     }
   
@@ -317,6 +319,7 @@ export function WordlePage({day}: WordlePageProps) {
           </div>
         </Modal>
       }
+      <ToastContainer/>
     </Page>
   );
 }
